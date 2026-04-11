@@ -3,11 +3,11 @@ import numpy as np
 import re
 import pickle
 import nltk
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('punkt_tab')
-nltk.download('averaged_perceptron_tagger')
-nltk.download('wordnet')
+nltk.download('stopwords', quiet=True)
+nltk.download('punkt', quiet=True)
+nltk.download('punkt_tab', quiet=True)
+nltk.download('averaged_perceptron_tagger', quiet=True)
+nltk.download('wordnet', quiet=True)
 from textblob import TextBlob
 from nltk.corpus import stopwords
 stop_words = set(stopwords.words('english'))
