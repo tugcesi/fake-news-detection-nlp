@@ -3,7 +3,11 @@ import numpy as np
 import re
 import pickle
 import nltk
-nltk.download('stopwords')
+nltk.download('stopwords', quiet=True)
+nltk.download('punkt', quiet=True)
+nltk.download('punkt_tab', quiet=True)
+nltk.download('averaged_perceptron_tagger', quiet=True)
+nltk.download('wordnet', quiet=True)
 from textblob import TextBlob
 from nltk.corpus import stopwords
 stop_words = set(stopwords.words('english'))
@@ -11,13 +15,6 @@ stop_words = set(stopwords.words('english'))
 def ekkok(text):
     words = TextBlob(text).words
     return [word.lemmatize() for word in words if word.lower() not in stop_words]
-
-import pickle
-@st.cache_resource
-def load_vectorizer():
-    with open('vectorizer.pkl', 'rb') as f:
-        return pickle.load(f)
-vectorizer = load_vectorizer()
 
 # ── Sayfa Ayarları ──────────────────────────────────────────────
 st.set_page_config(
